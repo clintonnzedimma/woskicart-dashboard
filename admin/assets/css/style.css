@@ -1,0 +1,72 @@
+:root {
+  --wc-primary: #0d6efd;
+  --wc-secondary: #6c757d;
+  --wc-bg: #f8f9fa;
+  --wc-text: #212529;
+}
+
+[data-theme="dark"] {
+  --wc-primary: #0d6efd;
+  --wc-secondary: #6c757d;
+  --wc-bg: #212529;
+  --wc-text: #f8f9fa;
+}
+
+[data-theme="custom"] {
+  --wc-primary: #4caf50;
+  --wc-secondary: #ff9800;
+  --wc-bg: #ffffff;
+  --wc-text: #333333;
+}
+
+body {
+  background-color: var(--wc-bg);
+  color: var(--wc-text);
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: var(--wc-primary);
+  color: #fff;
+  transition: all 0.3s;
+}
+.sidebar.collapsed {
+  margin-left: -250px;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#page-content-wrapper {
+  flex: 1;
+  background: var(--wc-bg);
+}
+
+.navbar {
+  background: var(--wc-primary);
+}
+.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-text {
+  color: #fff;
+}
+
+.card {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: none;
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.theme-switcher .dropdown-item {
+  cursor: pointer;
+}
+
+.alerts-container {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 1055;
+}
