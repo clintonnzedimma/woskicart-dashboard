@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings · WoskiCart Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/custom.css" rel="stylesheet" />
+  </head>
+  <body class="theme-default" data-base-url="../" data-page-id="settings">
+    <div class="loader-overlay"><div class="loader-spinner"></div></div>
+    <div class="alert-container"></div>
+    <aside class="sidebar d-flex flex-column">
+      <div class="logo">
+        <span class="badge bg-light text-primary rounded-pill p-3">WC</span>
+        <div>
+          <div class="fw-bold">WoskiCart</div>
+          <small class="text-white-50">Admin Suite</small>
+        </div>
+      </div>
+      <nav class="nav flex-column">
+        <a class="nav-link" data-nav-target="dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a class="nav-link" data-nav-target="products"><i class="bi bi-box-seam"></i> Products</a>
+        <a class="nav-link" data-nav-target="categories"><i class="bi bi-diagram-3"></i> Categories</a>
+        <a class="nav-link" data-nav-target="tags"><i class="bi bi-tag"></i> Tags</a>
+        <a class="nav-link" data-nav-target="orders"><i class="bi bi-receipt"></i> Orders</a>
+        <a class="nav-link" data-nav-target="customers"><i class="bi bi-people"></i> Customers</a>
+        <a class="nav-link" data-nav-target="reviews"><i class="bi bi-chat-left-text"></i> Reviews</a>
+        <a class="nav-link" data-nav-target="transactions"><i class="bi bi-cash-coin"></i> Transactions</a>
+        <a class="nav-link" data-nav-target="charts"><i class="bi bi-graph-up"></i> Analytics</a>
+        <a class="nav-link" data-nav-target="components"><i class="bi bi-layers"></i> UI Components</a>
+        <a class="nav-link" data-nav-target="settings"><i class="bi bi-gear"></i> Settings</a>
+        <a class="nav-link" data-nav-target="boilerplate"><i class="bi bi-columns"></i> Boilerplate</a>
+      </nav>
+    </aside>
+    <div class="main-wrapper">
+      <nav class="navbar top-navbar navbar-expand-lg py-3">
+        <div class="container-fluid">
+          <button class="btn btn-link text-white sidebar-toggler" id="sidebarToggle"><i class="bi bi-list fs-3"></i></button>
+          <a class="navbar-brand fw-semibold ms-2" href="#">Settings</a>
+          <div class="ms-auto d-flex align-items-center gap-3">
+            <div class="btn-group theme-switcher" role="group">
+              <button type="button" class="btn btn-sm btn-light" data-theme-select="default">Default</button>
+              <button type="button" class="btn btn-sm btn-outline-light" data-theme-select="dark">Dark</button>
+              <button type="button" class="btn btn-sm btn-warning text-dark" data-theme-select="custom">Custom</button>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-outline-light d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="table-avatar">AD</span>
+                <span class="text-start">
+                  <span class="d-block fw-semibold">Alex Doe</span>
+                  <small class="text-white-50">Administrator</small>
+                </span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Billing</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="../login/index.html">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="p-4 p-lg-5">
+        <div class="glossy-card mb-4">
+          <h5 class="mb-2">Store configuration</h5>
+          <p class="text-muted-soft mb-0">Control business settings, routing, payments, and the admin appearance.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3">
+            <div class="list-group shadow-soft">
+              <button class="list-group-item list-group-item-action active" data-bs-toggle="pill" data-bs-target="#settings-general">General</button>
+              <button class="list-group-item list-group-item-action" data-bs-toggle="pill" data-bs-target="#settings-stock">Stock</button>
+              <button class="list-group-item list-group-item-action" data-bs-toggle="pill" data-bs-target="#settings-checkout">Checkout</button>
+              <button class="list-group-item list-group-item-action" data-bs-toggle="pill" data-bs-target="#settings-payments">Payments</button>
+              <button class="list-group-item list-group-item-action" data-bs-toggle="pill" data-bs-target="#settings-routes">Routes</button>
+              <button class="list-group-item list-group-item-action" data-bs-toggle="pill" data-bs-target="#settings-appearance">Appearance</button>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="settings-general">
+                <div class="form-section mb-4">
+                  <h5 class="mb-3">Store identity</h5>
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <label class="form-label" for="storeName">Store name</label>
+                      <input type="text" class="form-control" id="storeName" value="WoskiCart" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="storeCurrency">Default currency</label>
+                      <select class="form-select" id="storeCurrency">
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>GBP</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">Logo</label>
+                      <div class="dnd-area">
+                        <input class="form-control image-upload-input" type="file" accept="image/*" data-preview-target="#logoPreview" />
+                        <div class="py-3">
+                          <i class="bi bi-upload fs-1"></i>
+                          <p class="mb-1 fw-semibold">Click to upload store logo</p>
+                          <small class="text-muted-soft">SVG or PNG recommended</small>
+                        </div>
+                      </div>
+                      <div id="logoPreview" class="preview-grid mt-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="settings-stock">
+                <div class="form-section">
+                  <h5 class="mb-3">Inventory control</h5>
+                  <div class="d-flex justify-content-between align-items-center border rounded-4 p-3 mb-3 shadow-soft">
+                    <div>
+                      <h6 class="mb-1">Enable stock tracking</h6>
+                      <small class="text-muted-soft">Automatically deduct inventory when orders are fulfilled.</small>
+                    </div>
+                    <label class="toggle-switch mb-0">
+                      <input type="checkbox" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center border rounded-4 p-3 shadow-soft">
+                    <div>
+                      <h6 class="mb-1">Low stock alerts</h6>
+                      <small class="text-muted-soft">Notify merchandising team when stock drops below threshold.</small>
+                    </div>
+                    <label class="toggle-switch mb-0">
+                      <input type="checkbox" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="settings-checkout">
+                <div class="form-section">
+                  <h5 class="mb-3">Checkout preferences</h5>
+                  <div class="d-flex justify-content-between align-items-center border rounded-4 p-3 mb-3 shadow-soft">
+                    <div>
+                      <h6 class="mb-1">Enable guest checkout</h6>
+                      <small class="text-muted-soft">Customers can checkout without creating an account.</small>
+                    </div>
+                    <label class="toggle-switch mb-0">
+                      <input type="checkbox" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Checkout note</label>
+                    <textarea class="form-control" rows="3" placeholder="Displayed on the checkout page"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="settings-payments">
+                <div class="form-section">
+                  <h5 class="mb-3">Payment gateways</h5>
+                  <div class="mb-3">
+                    <label class="form-label" for="stripeKey">Stripe publishable key</label>
+                    <input type="text" class="form-control" id="stripeKey" placeholder="pk_live_123" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="stripeSecret">Stripe secret key</label>
+                    <input type="password" class="form-control" id="stripeSecret" placeholder="sk_live_123" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="paypalClient">PayPal client ID</label>
+                    <input type="text" class="form-control" id="paypalClient" placeholder="A123456789" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="paypalSecret">PayPal secret</label>
+                    <input type="password" class="form-control" id="paypalSecret" placeholder="secret" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="settings-routes">
+                <div class="form-section">
+                  <h5 class="mb-3">Routing</h5>
+                  <div class="mb-3">
+                    <label class="form-label" for="baseRoute">Base route</label>
+                    <input type="text" class="form-control" id="baseRoute" value="https://shop.woskicart.com" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="storePrefix">Store prefix</label>
+                    <input type="text" class="form-control" id="storePrefix" value="/store" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="adminPrefix">Admin prefix</label>
+                    <input type="text" class="form-control" id="adminPrefix" value="/woskicart/admin" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="settings-appearance">
+                <div class="form-section">
+                  <h5 class="mb-3">Theme appearance</h5>
+                  <p class="text-muted-soft">Choose from built-in themes or craft a custom palette.</p>
+                  <div class="d-flex flex-wrap gap-3 mb-4 theme-switcher">
+                    <button class="btn btn-glossy" type="button" data-theme-select="default">Default</button>
+                    <button class="btn btn-outline-light" type="button" data-theme-select="dark">Dark</button>
+                    <button class="btn btn-outline-info" type="button" data-theme-select="custom">Custom</button>
+                  </div>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" for="customPrimary">Primary color</label>
+                      <input type="color" class="form-control form-control-color" id="customPrimary" value="#0081ff" />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="customAccent">Accent color</label>
+                      <input type="color" class="form-control form-control-color" id="customAccent" value="#00c6ff" />
+                    </div>
+                  </div>
+                  <div class="alert alert-info mt-4 mb-0">Save to persist custom colors. You can further override in <code>woskicart/assets/css/custom.css</code>.</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-end mt-4">
+              <button class="btn btn-outline-secondary me-2">Cancel</button>
+              <button class="btn btn-glossy" onclick="Alert.success('Settings saved (demo)');">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-3fabf3R8bJ2Q6W2PumoefRg2fzGEylZmCtbY2AJ3GzU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>
